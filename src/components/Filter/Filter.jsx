@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { FilterContainer, Input, Label, Span } from './Filter.styled';
+import { FilterContainer, Label, Span } from './Filter.styled';
+import { Input } from 'components/ContactForm/ContactForm.styled';
 
 export function Filter({ value, onFilter }) {
   return (

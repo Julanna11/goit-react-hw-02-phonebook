@@ -55,6 +55,7 @@ export class App extends React.Component {
         <Section title="Phonebook">
           <Form onSubmit={this.formSubmitHandler}></Form>
         </Section>
+
         <Section title="Contacts">
           <Filter value={this.state.filter} onFilter={this.setFilter} />
 

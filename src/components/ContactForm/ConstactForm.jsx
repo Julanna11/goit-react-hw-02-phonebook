@@ -1,6 +1,8 @@
+import { Input } from './ContactForm.styled';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Button } from 'utilities/button.styled';
 
 const InitialState = {
   name: '',
@@ -34,7 +36,7 @@ class Form extends Component {
     const { name, number } = this.state;
     return (
       <form autoComplete="off" onSubmit={this.handleSubmit}>
-        <input
+        <Input
           id={nanoid()}
           type="text"
           name="name"
@@ -44,7 +46,7 @@ class Form extends Component {
           onChange={this.handleChange}
           required
         />
-        <input
+        <Input
           type="tel"
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -53,7 +55,7 @@ class Form extends Component {
           onChange={this.handleChange}
           required
         />
-        <button type="submit">Add Contact</button>
+        <Button type="submit">Add Contact</Button>
       </form>
     );
   }
