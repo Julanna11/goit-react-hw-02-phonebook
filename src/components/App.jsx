@@ -44,24 +44,11 @@ export class App extends React.Component {
     this.setState({ filter: value });
   };
 
-  // getFilteredContacts = () => {
-  //   const { filter, contacts } = this.state;
-  //   return contacts.filter(contact =>
-  //     contact.name.toLowerCase().includes(filter.toLowerCase())
-  //   );
-  // };
-
   getFilteredContacts = () => {
-    const { contacts, filter } = this.state;
-    const normalizedFilter = filter.toLocaleLowerCase();
-    return filter
-      ? contacts.filter(contact =>
-          contact.name
-            .toLowerCase()
-            .split(' ')
-            .some(element => element.startsWith(normalizedFilter))
-        )
-      : contacts;
+    const { filter, contacts } = this.state;
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLowerCase())
+    );
   };
 
   render() {
