@@ -1,6 +1,6 @@
 import React from 'react';
 import Form from './ContactForm/ConstactForm';
-import { ContactList } from './ContactForm/ContactLsit/ContactList';
+import { ContactList } from './ContactLsit/ContactList';
 import { Filter } from './Filter/Filter';
 import Section from './Section/Section';
 import { Container } from './Container.styled';
@@ -24,7 +24,9 @@ export class App extends React.Component {
       number,
     };
 
-    this.state.contacts.some(e => e.name === contact.name)
+    this.state.contacts.some(
+      e => e.name.toLowerCase() === contact.name.toLowerCase()
+    )
       ? alert(`${name} is already in contacts`)
       : this.setState(prevState => ({
           contacts: [...prevState.contacts, contact],
@@ -42,11 +44,24 @@ export class App extends React.Component {
     this.setState({ filter: value });
   };
 
+  // getFilteredContacts = () => {
+  //   const { filter, contacts } = this.state;
+  //   return contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(filter.toLowerCase())
+  //   );
+  // };
+
   getFilteredContacts = () => {
     const { contacts, filter } = this.state;
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
-    );
+    const normalizedFilter = filter.toLocaleLowerCase();
+    return filter
+      ? contacts.filter(contact =>
+          contact.name
+            .toLowerCase()
+            .split(' ')
+            .some(element => element.startsWith(normalizedFilter))
+        )
+      : contacts;
   };
 
   render() {

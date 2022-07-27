@@ -5,15 +5,16 @@ import { Input } from 'components/ContactForm/ContactForm.styled';
 export function Filter({ value, onFilter }) {
   return (
     <FilterContainer>
-      <Label />
-      <Span>Find contacts by name</Span>
-      <Input
-        name="filter"
-        type="text"
-        value={value}
-        onChange={onFilter}
-        required={false}
-      />
+      <Label>
+        <Span>Find contacts by name</Span>
+        <Input
+          name="filter"
+          type="text"
+          value={value}
+          onChange={onFilter}
+          required={false}
+        />
+      </Label>
     </FilterContainer>
   );
 }

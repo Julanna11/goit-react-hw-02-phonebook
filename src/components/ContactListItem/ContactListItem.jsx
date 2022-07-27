@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Button } from 'utilities/button.styled';
-import { ListItem } from '../ContactLsit/ContactList.styled';
+import { ListItem } from 'components/ContactLsit/ContactList.styled';
 
 export function ContactListItem({ id, name, number, onClickDelete }) {
   return (
